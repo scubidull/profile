@@ -80,7 +80,7 @@ a           { color: var(--marrom); text-decoration: underline; }
   background: #ccc;
 }
 
-.gosto { font-size: .82rem; line-height: 1.35; }
+.gosto { font-size: .72rem; line-height: 1.3; margin-bottom: .45rem; }
 
 .coluna-texto { position: relative; padding-top: .2rem; }
 
@@ -143,4 +143,86 @@ a           { color: var(--marrom); text-decoration: underline; }
   font-size: 1.8rem;
   color: #1f2d4a;
   margin-top: 1.2rem;
+}
+
+@media (max-width: 600px) {
+  html { font-size: min(18px, calc(100vw / 38), calc(100dvh / 85)); }
+
+  .pagina {
+    max-width: 34rem;
+    height: 100dvh;
+    padding: .45rem;
+    gap: .45rem;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .cartao-apresentacao {
+    grid-template-columns: 6rem minmax(0, 1fr);
+    gap: .5rem;
+    padding: .7rem;
+    margin-top: 1rem;
+  }
+
+  .coluna-foto { margin-top: -1.4rem; }
+
+  .foto-redonda {
+    width: 4.2rem;
+    height: 4.2rem;
+  }
+
+  .gosto { font-size: .65rem; line-height: 1.25; margin-bottom: .35rem; }
+  .texto { font-size: .72rem; line-height: 1.25; }
+  .nome { font-size: .8rem; }
+
+  .aba {
+    font-size: .62rem;
+    padding: .15rem .4rem;
+  }
+
+  .redes { gap: .35rem; margin-top: .35rem; }
+  .redes a { width: .9rem; height: .9rem; }
+
+  .cartao-regras {
+    grid-template-columns: minmax(0, 1fr) 6rem;
+    gap: .5rem;
+    padding: .7rem;
+  }
+
+  .regras-texto p,
+  .bloco p { font-size: .68rem; line-height: 1.25; }
+  h2 { font-size: .85rem; margin-bottom: .35rem; }
+  .etiqueta { font-size: .65rem; padding: .05rem .3rem; }
+
+  .regras-imagem {
+    height: 4.5rem;
+  }
+
+  .cartao-dados {
+    grid-template-columns: 5rem minmax(0, 1fr);
+    gap: .5rem;
+    padding: .7rem;
+  }
+
+  .dados-imagem {
+    width: 100%;
+    aspect-ratio: 1 / 1.1;
+  }
+
+  .grade-dados { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .35rem; }
+  .cartao p { overflow-wrap: anywhere; }
+}
+
+@media (max-width: 360px) {
+  .cartao-apresentacao { grid-template-columns: 5rem minmax(0, 1fr); }
+  .cartao-regras { grid-template-columns: minmax(0, 1fr) 4.5rem; }
+  .cartao-dados { grid-template-columns: 4rem minmax(0, 1fr); }
+}
+
+@media (max-width: 600px) {
+  body {
+    height: 100dvh;
+    min-height: 0;
+    overflow: hidden;
+  }
 }
