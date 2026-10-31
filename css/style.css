@@ -1,3 +1,8 @@
+/* ==========================================================
+   Perfil da gina — versão mobile-first
+   Pensado para telas de celular (a partir de ~320px).
+   ========================================================== */
+
 :root {
   --fundo: #f6e9f3;
   --fundo-2: #efe0f2;
@@ -34,7 +39,7 @@ body {
   background-attachment: fixed;
   min-height: 100vh;
   overflow-x: hidden;
-
+  /* respeita o notch / barras do celular */
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
   -webkit-tap-highlight-color: transparent;
@@ -46,7 +51,7 @@ img {
   height: auto;
 }
 
-
+/* ---------- layout geral ---------- */
 
 .pagina {
   display: flex;
@@ -138,7 +143,7 @@ p:last-child {
 }
 
 .arroba {
-  display: block;
+  display: block; /* @ embaixo do nome, nunca estoura a tela */
   margin-top: 2px;
   font-family: "Quicksand", system-ui, sans-serif;
   font-size: 1rem;
@@ -148,7 +153,7 @@ p:last-child {
 
 .texto {
   font-size: 1rem;
-  text-align: left; 
+  text-align: left; /* texto corrido fica mais legível alinhado à esquerda */
 }
 
 .texto b {
@@ -223,7 +228,7 @@ p:last-child {
 
 .grade-dados {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr; /* uma coluna só no celular */
   gap: 12px;
 }
 
@@ -242,7 +247,7 @@ p:last-child {
   margin: 0;
 }
 
-
+/* ---------- telas bem pequenas ---------- */
 
 @media (max-width: 360px) {
   :root {
@@ -261,5 +266,26 @@ p:last-child {
   h2,
   .nome {
     font-size: 1.75rem;
+  }
+}
+
+/* ---------- celular deitado / tablet pequeno ---------- */
+
+@media (min-width: 600px) {
+  .pagina {
+    max-width: 640px;
+  }
+
+  .grade-dados {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ---------- acessibilidade ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
   }
 }
